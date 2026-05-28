@@ -11,6 +11,7 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -20,17 +21,19 @@ jobs:
         with:
           node-version: "20"
           registry-url: "https://registry.npmjs.org/"
+          cache: npm
+          cache-dependency-path: packages/zyui/package-lock.json
 
       - name: Install
+        working-directory: packages/zyui
         run: npm ci
 
-      - name: Build And Sync
-        run: npm run build:css && npm run build:js && npm run zyui:sync
-
       - name: Bump Version
-        run: npm run zyui:version:${{ inputs.bump }}
+        working-directory: packages/zyui
+        run: npm version ${{ inputs.bump }} --no-git-tag-version
 
       - name: Publish
-        run: npm --prefix packages/zyui publish --access public
+        working-directory: packages/zyui
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
