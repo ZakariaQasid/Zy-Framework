@@ -120,6 +120,9 @@ title: Zy-Framework
     <a class="zy-btn primary" href="getting-started">Get Started</a>
     <a class="zy-btn" href="ZyUI">ZyUI Design System</a>
     <a class="zy-btn" href="ZyJS">ZyJS Runtime</a>
+    <a class="zy-btn" href="ZyUI-React">React Adapter</a>
+    <a class="zy-btn" href="ZyUI-Vue">Vue Adapter</a>
+    <a class="zy-btn" href="ZyUI-Angular">Angular Adapter</a>
   </div>
 </section>
 
@@ -142,6 +145,19 @@ title: Zy-Framework
   </div>
 </section>
 
+<section class="zy-card">
+  <h3>Package demo</h3>
+  <p>
+    The npm package now ships with a real static docs hub and demo inside
+    <code>packages/zyui/docs/</code>. The demo shows the same package shape that users
+    get when they install <code>@zytechg/zyui</code>.
+  </p>
+  <div class="zy-actions">
+    <a class="zy-btn primary" href="https://github.com/zakariaweb/Zy-Framework/blob/master/packages/zyui/docs/demo.html">Open package demo source</a>
+    <a class="zy-btn" href="https://github.com/zakariaweb/Zy-Framework/blob/master/packages/zyui/README.md">Read package README</a>
+  </div>
+</section>
+
 ## What Is Inside
 
 - ZyUI: styling, layout primitives, and UI patterns.
@@ -154,9 +170,15 @@ title: Zy-Framework
   <a href="getting-started">Getting Started</a>
   <a href="ZyUI">ZyUI Docs</a>
   <a href="ZyJS">ZyJS Docs</a>
+  <a href="ZyUI-React">React Adapter</a>
+  <a href="ZyUI-Vue">Vue Adapter</a>
+  <a href="ZyUI-Angular">Angular Adapter</a>
 </div>
 
 ## Packages
 
 - npm: `@zytechg/zyui`
+- npm: `@zytechg/zyui-react`
+- npm: `@zytechg/zyui-vue`
+- npm: `@zytechg/zyui-angular`
 - repo: `https://github.com/zakariaweb/Zy-Framework`

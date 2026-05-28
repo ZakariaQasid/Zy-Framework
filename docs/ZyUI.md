@@ -191,3 +191,15 @@ Add `:focus-visible` styles when introducing new interactive ZyUI elements.
 1. Add new ZyUI classes to `public/css/zy/zy-ui.css`.
 2. Keep names `zyui-*` and app-specific.
 3. Document additions in this file.
+
+---
+
+**13. Live Package Demo**
+
+The npm package now ships with a static docs hub and demo under `packages/zyui/docs/`:
+
+1. `packages/zyui/docs/index.html`
+2. `packages/zyui/docs/demo.html`
+3. `packages/zyui/docs/README.md`
+
+These pages are included in the package tarball so the docs stay visible on GitHub and inside the install.

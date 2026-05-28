@@ -1,13 +1,18 @@
-# @zytechg/zyui
+# @zytechg/zyui v1.2.0
 
-ZyUI (CSS) + ZyJS (JS) is a production-grade UI system designed for fast, consistent interfaces. It ships with polished layout primitives, a clear token system, and a lightweight JS runtime for routing, state hooks, and UI behaviors.
+ZyUI is the shared UI framework for ZyFOCUS and the wider ZyTech package ecosystem. It combines a polished CSS system with the ZyJS runtime and optional components for fast, consistent interfaces.
 
-Built for ZyFOCUS, safe to reuse anywhere.
+## What ships
+
+- `zy-ui.css` for the framework stylesheet
+- `zyjs.js` for the ZyJS runtime
+- `zyjs.components.js` for optional `data-zyjs` behaviors
+- `docs/` for the docs hub, demo, and changelog snapshots
 
 ## Install
 
 ```bash
-npm i @zytechg/zyui
+npm install @zytechg/zyui
 ```
 
 ## Quick Start
@@ -25,32 +30,38 @@ npm i @zytechg/zyui
 <script src="node_modules/@zytechg/zyui/zyjs.components.js"></script>
 ```
 
-### JS (Module import)
+### Module import
 
 ```js
 import '@zytechg/zyui/zyjs.js';
 import '@zytechg/zyui/zyjs.components.js';
 ```
 
-## What You Get
+## Real Demo
 
-1. **ZyUI CSS**
-   - Tokens for spacing, radii, and elevation
-   - Professional card, toolbar, banner, and layout primitives
-2. **ZyJS Runtime**
-   - Event bus, component registry, and guards
-   - Lifecycle bridge hooks for rich app behavior
-3. **ZyJS Components (optional)**
-   - Auto-mount components via `data-zyjs`
+The package includes a real static demo and docs hub:
 
-## Documentation
+- `docs/index.html`
+- `docs/demo.html`
 
-1. `docs/ZyUI.md`
-2. `docs/ZyJS.md`
+The demo shows:
+
+- the package layout
+- a copy-to-clipboard interaction
+- an active-state toggle
+- the package shell and card rhythm
+
+## Package Layout
+
+- `docs/` for docs and demo pages
+- `zy-ui.css` for styles
+- `zyjs.js` for the runtime
+- `zyjs.components.js` for optional components
+- `README.md` for package overview
+- `CHANGELOG.md` for release history
 
 ## Notes
 
-1. ZyUI is additive: apply `zyui-*` classes alongside existing classes.
-2. ZyJS is a lightweight runtime with an event bus and guard system.
-3. ZyJS components are optional and auto-mount on `[data-zyjs]` elements.
-4. Built for ZyFOCUS but safe to reuse.
+1. ZyUI is additive: apply it alongside your app classes.
+2. ZyJS components auto-mount on `[data-zyjs]` elements.
+3. The package is designed to feel production-ready from the first install.

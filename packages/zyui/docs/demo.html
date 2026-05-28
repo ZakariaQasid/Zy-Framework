@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>@zytechg/zyui Demo</title>
+  <meta name="description" content="A real static demo of the ZyUI package and ZyJS runtime.">
+  <link rel="stylesheet" href="../zy-ui.css">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg:
+        radial-gradient(circle at top left, rgba(20, 184, 166, 0.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(59, 130, 246, 0.18), transparent 24%),
+        linear-gradient(180deg, #07111f 0%, #0b1220 46%, #060b14 100%);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: #ecf3ff;
+      font-family: system-ui, sans-serif;
+    }
+
+    .demo-shell {
+      display: grid;
+      grid-template-columns: minmax(240px, 290px) minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      padding: 28px 22px;
+      border-right: 1px solid rgba(148, 163, 184, 0.18);
+      background: rgba(10, 16, 28, 0.74);
+      backdrop-filter: blur(18px);
+    }
+
+    .main {
+      padding: 28px;
+    }
+
+    .hero {
+      display: grid;
+      gap: 18px;
+      padding: clamp(20px, 3vw, 32px);
+      border-radius: 28px;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)),
+        rgba(10, 16, 28, 0.72);
+      box-shadow: 0 28px 60px rgba(2, 6, 23, 0.32);
+    }
+
+    .kicker {
+      margin: 0;
+      color: #7dd3fc;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.74rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 4.2vw, 4rem);
+      line-height: 1.02;
+      max-width: 12ch;
+    }
+
+    p,
+    li {
+      color: rgba(226, 232, 240, 0.8);
+      line-height: 1.65;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.78rem 1.1rem;
+      border-radius: 999px;
+      text-decoration: none;
+      color: #ecf3ff;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      background: rgba(15, 23, 42, 0.52);
+      font-weight: 600;
+    }
+
+    .btn.primary {
+      color: #020617;
+      background: linear-gradient(135deg, #7dd3fc, #38bdf8);
+      border-color: transparent;
+    }
+
+    .code {
+      margin: 0;
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(2, 6, 23, 0.62);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      overflow-x: auto;
+      font-size: 0.92rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .card {
+      padding: 20px;
+      border-radius: 22px;
+      border: 1px solid rgba(148, 163, 184, 0.16);
+      background: rgba(10, 16, 28, 0.6);
+      backdrop-filter: blur(16px);
+    }
+
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+    }
+
+    .preview.is-active {
+      border-color: rgba(125, 211, 252, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(59, 130, 246, 0.14);
+      border: 1px solid rgba(96, 165, 250, 0.26);
+      color: #dbeafe;
+      font-weight: 600;
+      width: fit-content;
+    }
+
+    @media (max-width: 960px) {
+      .demo-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        border-right: 0;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-shell">
+    <aside class="sidebar">
+      <p class="kicker">Published package</p>
+      <h1>@zytechg/zyui</h1>
+      <p>Package layout, live demo, and docs that ship together.</p>
+
+      <div class="status">ZyJS <span id="runtimeVersion">1.2.0</span></div>
+      <p id="runtimeState">Booting demo...</p>
+
+      <ul>
+        <li>CSS entry: <code>zy-ui.css</code></li>
+        <li>JS entry: <code>zyjs.js</code></li>
+        <li>Components: <code>zyjs.components.js</code></li>
+      </ul>
+    </aside>
+
+    <main class="main">
+      <section class="hero zyui-card">
+        <p class="kicker">Real static demo</p>
+        <h1>A package that feels ready the moment it is installed.</h1>
+        <p>
+          This demo uses the exact files shipped in the npm package, so the docs are not just a mockup.
+          It shows the package structure, a copy helper, and a live toggle driven by ZyJS.
+        </p>
+
+        <div class="actions">
+          <button class="btn primary" data-zyjs="copy-trigger" data-copy-target="#installCommand">Copy install command</button>
+          <button class="btn" data-zyjs="active-toggle" data-target="#previewPanel" data-active-class="is-active">Toggle preview panel</button>
+          <a class="btn" href="./index.html">Open docs home</a>
+        </div>
+
+        <pre class="code" id="installCommand">npm install @zytechg/zyui</pre>
+
+        <div class="card preview" id="previewPanel">
+          <h2>Package structure</h2>
+          <div class="grid">
+            <article class="card">
+              <strong>zy-ui.css</strong>
+              <p>Framework stylesheet with the same shell rhythm used across ZyTech products.</p>
+            </article>
+            <article class="card">
+              <strong>zyjs.js</strong>
+              <p>ZyJS runtime with lifecycle helpers, bus hooks, and DOM utilities.</p>
+            </article>
+            <article class="card">
+              <strong>docs/</strong>
+              <p>Docs home, demo page, README snapshot, and changelog snapshot.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2>What it demonstrates</h2>
+          <ul>
+            <li>Package-first structure that matches the npm output.</li>
+            <li>Interactive copy action powered by <code>copy-trigger</code>.</li>
+            <li>Active-state toggling powered by <code>active-toggle</code>.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>How to inspect it</h2>
+          <p>
+            Open <code>packages/zyui/docs/demo.html</code> in the repo or browse the installed package
+            inside <code>node_modules/@zytechg/zyui/docs/</code>.
+          </p>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="../zyjs.js"></script>
+  <script src="../zyjs.components.js"></script>
+  <script>
+    window.ZyJS?.ready((zy) => {
+      const versionEl = document.getElementById('runtimeVersion');
+      const stateEl = document.getElementById('runtimeState');
+      const previewEl = document.getElementById('previewPanel');
+
+      const syncState = () => {
+        const state = zy.getState?.() || {};
+        versionEl.textContent = zy.version || '1.2.0';
+        stateEl.textContent = `${navigator.onLine ? 'Online' : 'Offline'} - ${state.ready ? 'ready' : 'loading'}`;
+      };
+
+      zy.bus.on('app:state', syncState);
+      zy.bus.on('clipboard:copied', () => {
+        stateEl.textContent = 'Copied install command';
+        previewEl?.classList.add('is-active');
+      });
+
+      syncState();
+      zy.mountAll(document);
+    });
+  </script>
+</body>
+</html>

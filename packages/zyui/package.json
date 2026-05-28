@@ -1,11 +1,12 @@
 {
   "name": "@zytechg/zyui",
-  "version": "0.1.1",
-  "description": "ZyUI and ZyJS core UI system for ZyFOCUS.",
+  "version": "1.2.0",
+  "description": "ZyUI and ZyJS core UI system for ZyFOCUS and the wider ZyTech package ecosystem.",
   "license": "MIT",
   "main": "zyjs.js",
   "style": "zy-ui.css",
   "files": [
+    "docs",
     "zy-ui.css",
     "zyjs.js",
     "zyjs.components.js",
@@ -21,12 +22,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zakariaweb/ZyFOCUS.git"
+    "url": "git+https://github.com/zakariaweb/Zy-Framework.git"
   },
+  "homepage": "https://github.com/zakariaweb/Zy-Framework",
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {
-    "@zytechg/zyui": "^0.1.0"
-  }
+  "dependencies": {}
 }
